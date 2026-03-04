@@ -1,0 +1,5 @@
+
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 30 H70 C80 10 120 10 130 30 H190" stroke="black" stroke-width="4" fill="none"/>
+  <text x="60" y="55" font-family="Inter" font-size="32" font-weight="bold">LOW</text>
+</svg>
