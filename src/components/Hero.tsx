@@ -72,7 +72,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="relative lg:h-[600px] flex items-center"
         >
-          <div className="relative w-full aspect-square lg:aspect-auto lg:h-[90%] glass-dark rounded-2xl p-6 shadow-2xl overflow-hidden shadow-black/50">
+          <div className="relative w-full lg:h-[90%] glass-dark rounded-2xl p-6 shadow-2xl overflow-hidden shadow-black/50">
             {/* Window header */}
             <div className="flex items-center gap-2 mb-6 border-b border-white/5 pb-4">
               <div className="flex gap-1.5">
