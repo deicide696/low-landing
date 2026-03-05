@@ -16,8 +16,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 md:order-1 md:mt-0 flex gap-6 items-center flex-col md:flex-row justify-center md:justify-start">
-          <div className="text-slate-900">
-            <Logo className="w-24 shrink-0" />
+          <div className="text-slate-900 flex items-center h-12">
+            <Logo className="w-24 shrink-0" imgClassName="object-contain w-full h-full" />
           </div>
           <p className="text-center text-sm leading-5 text-slate-500">
             &copy; {new Date().getFullYear()} Low Automations.

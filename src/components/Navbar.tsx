@@ -4,9 +4,9 @@ export default function Navbar() {
     return (
         <header className="absolute top-0 left-0 w-full z-50">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 h-24 flex justify-between items-center">
-                {/* Logo text color controlled by parent (white) */}
-                <a href="/" className="flex items-center text-white transition-opacity hover:opacity-80">
-                    <Logo className="w-28 text-white" />
+                {/* Logo inverted to be white on dark background */}
+                <a href="/" className="flex items-center transition-opacity hover:opacity-80">
+                    <Logo className="w-20" imgClassName="object-contain w-full h-full brightness-0 invert" />
                 </a>
 
                 <nav className="flex items-center gap-6">
