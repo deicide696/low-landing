@@ -20,12 +20,12 @@ export default function Hero({ onOpenDemo }: HeroProps) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 px-6 py-24 sm:py-32 lg:px-8 min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-slate-950 px-6 py-24 sm:py-32 pb-28 sm:pb-32 lg:pb-24 lg:min-h-screen lg:flex lg:items-center lg:px-8">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid-white/[0.04] bg-[size:32px_32px]" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-gradient-to-b from-blue-500/20 to-transparent blur-3xl rounded-full opacity-50" />
 
-      <div className="relative mx-auto max-w-7xl w-full grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative mx-auto max-w-7xl w-full grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 lg:items-center">
 
         {/* Text Content */}
         <motion.div
@@ -58,14 +58,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
           </motion.div>
 
           <motion.div variants={itemVariants} className="mt-10 flex items-center gap-4 text-sm text-slate-400">
-            <div className="flex -space-x-2">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-xs">
-                  {i === 3 ? "PY" : "PE"}
-                </div>
-              ))}
-            </div>
-            <p>Diseñado para <span className="text-white font-medium">PYMEs y Agencias</span></p>
+            <p>Pensado para <span className="text-white font-medium">PyMES, Startups, Agencias e Independientes</span></p>
           </motion.div>
         </motion.div>
 

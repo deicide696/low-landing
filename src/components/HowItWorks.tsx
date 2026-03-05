@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Bot, Database, MailCheck, BellRing } from "lucide-react";
+import { MailSearch, FileText, LayoutGrid, BellRing } from "lucide-react";
 
 export default function HowItWorks() {
   const steps = [
@@ -7,19 +7,19 @@ export default function HowItWorks() {
       id: 1,
       name: "Detecta facturas o pagos",
       description: "La IA monitorea tu bandeja de entrada identificando automáticamente qué correos tienen la información relevante (y descarta la basura).",
-      icon: MailCheck,
+      icon: MailSearch,
     },
     {
       id: 2,
       name: "Abre adjuntos y entiende",
       description: "Lee los PDFs, imágenes o el cuerpo del correo, y extrae los datos clave: proveedor, total, fecha e ID de factura.",
-      icon: Bot,
+      icon: FileText,
     },
     {
       id: 3,
       name: "Clasifica y registra",
       description: "Cruza la información de caja y anota en tu Google Sheets o Excel si el documento está 'Pendiente' o 'Pagado', manteniendo todo en orden.",
-      icon: Database,
+      icon: LayoutGrid,
     },
     {
       id: 4,
@@ -49,7 +49,7 @@ export default function HowItWorks() {
         <div className="mx-auto mt-16 max-w-4xl sm:mt-24">
           <div className="relative">
             {/* Connection Line */}
-            <div className="absolute top-12 left-[39px] bottom-12 w-0.5 bg-gradient-to-b from-blue-600/50 via-blue-600/20 to-transparent hidden md:block" />
+            <div className="absolute top-8 left-[31px] bottom-8 w-0.5 bg-gradient-to-b from-blue-600/50 via-blue-600/20 to-transparent hidden md:block" />
 
             <div className="space-y-12">
               {steps.map((step, index) => (
@@ -61,13 +61,12 @@ export default function HowItWorks() {
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   className="relative flex flex-col md:flex-row gap-8 items-start"
                 >
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white shadow-xl ring-1 ring-slate-900/5 z-10">
-                    <step.icon className="h-8 w-8 text-blue-600" />
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-600 shadow-lg shadow-blue-600/25 z-10">
+                    <step.icon className="h-8 w-8 text-white" aria-hidden="true" />
                   </div>
 
-                  <div className="md:pt-4">
+                  <div className="md:pt-2">
                     <h3 className="text-xl font-semibold leading-7 text-slate-900">
-                      <span className="text-blue-600 mr-2">{step.id}.</span>
                       {step.name}
                     </h3>
                     <p className="mt-3 text-base leading-7 text-slate-600 max-w-2xl">

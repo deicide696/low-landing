@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 interface PricingProps {
   onOpenDemo: (source: string) => void;
@@ -49,12 +49,17 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
             Recupera tu tiempo y elimina errores. Elige el plan que impulsará el crecimiento de tu negocio.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-y-6 lg:max-w-none lg:grid-cols-2 lg:gap-x-8">
-          {/* Tier 1 */}
-          <div className="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-slate-200 xl:p-10 hover:ring-blue-600 transition-all">
+        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-y-6 lg:max-w-none lg:grid-cols-3 lg:gap-x-8">
+          {/* Tier 1 - Junior (Recomendado) */}
+          <div className="flex flex-col justify-between rounded-3xl bg-white p-8 ring-2 ring-blue-600 xl:p-10 shadow-lg shadow-blue-600/10 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span className="inline-flex items-center rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+                Recomendado
+              </span>
+            </div>
             <div>
               <div className="flex items-center justify-between gap-x-4">
-                <h3 className="text-lg font-semibold leading-8 text-slate-900">Auxiliar administrativo Junior</h3>
+                <h3 className="text-lg font-semibold leading-8 text-slate-900">Auxiliar administrativo <span className="text-blue-600 font-bold">Junior</span></h3>
               </div>
               <p className="mt-4 text-sm leading-6 text-slate-600">
                 Ideal para el manejo automático de recibos, facturas y pagos mensuales.
@@ -74,13 +79,12 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
               <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-slate-600">
                 {[
                   "Hasta 200 correos procesados/mes",
-                  "Lectura de comprobantes de pago",
+                  "Hasta 5 reglas de configuración",
                   "Lectura de facturas y adjuntos",
-                  "Registro directo a tu Google Sheets o Excel",
-                  "Ajustes de reglas estándar"
+                  "Lectura de comprobantes de pago",
+                  "Registro directo a tu Google Sheets o Excel"
                 ].map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
-                    <CheckCircle2 className="h-6 w-5 flex-none text-blue-600" aria-hidden="true" />
+                  <li key={feature} className="flex items-start gap-x-3 pl-4 border-l-2 border-blue-500/60">
                     {feature}
                   </li>
                 ))}
@@ -94,7 +98,53 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
             </button>
           </div>
 
-          {/* Tier 2 */}
+          {/* Tier 2 - Turbo */}
+          <div className="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-slate-200 xl:p-10 hover:ring-blue-600 transition-all">
+            <div>
+              <div className="flex items-center justify-between gap-x-4">
+                <h3 className="text-lg font-semibold leading-8 text-slate-900">Auxiliar administrativo <span className="text-blue-600 font-bold">Turbo</span> 🚀</h3>
+              </div>
+              <p className="mt-4 text-sm leading-6 text-slate-600">
+                Más volumen, asistencia dedicada e integración API para crecer sin límites.
+              </p>
+              <div className="mt-6 flex items-baseline gap-x-2">
+                <span className="text-4xl font-bold tracking-tight text-slate-900">$ 498.000</span>
+                <span className="text-sm font-semibold leading-6 text-slate-600">COP / mes</span>
+              </div>
+              <div className="mt-2 flex flex-col gap-1">
+                <div className="flex items-baseline gap-x-2">
+                  <span className="text-sm line-through text-slate-400 font-medium">$ 1.245.000 COP</span>
+                  <span className="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
+                    -60% Lanzamiento
+                  </span>
+                </div>
+              </div>
+              <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-slate-600">
+                {[
+                  "Hasta 1.000 correos procesados/mes",
+                  "Hasta 20 reglas de configuración",
+                  "Lectura de facturas y adjuntos",
+                  "Lectura de comprobantes de pago",
+                  "Registro directo a tu Google Sheets o Excel",
+                  "Dashboards de métricas",
+                  "Asistencia telefónica",
+                  "Integración vía API"
+                ].map((feature) => (
+                  <li key={feature} className="flex items-start gap-x-3 pl-4 border-l-2 border-blue-500/60">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <button
+              onClick={() => onOpenDemo("Pricing: Auxiliar Junior Turbo")}
+              className="mt-8 block w-full rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all"
+            >
+              Solicitar demo gratis
+            </button>
+          </div>
+
+          {/* Tier 3 */}
           <div className="flex flex-col justify-between rounded-3xl bg-slate-900 p-8 ring-1 ring-slate-700 xl:p-10">
             <div>
               <div className="flex items-center justify-between gap-x-4">
