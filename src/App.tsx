@@ -17,7 +17,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
+    <div className="min-h-screen w-full max-w-full bg-slate-50 font-sans overflow-x-hidden">
       <Navbar onOpenDemo={openDemo} />
       <Hero onOpenDemo={openDemo} />
       <Features />

@@ -7,13 +7,13 @@ interface NavbarProps {
 export default function Navbar({ onOpenDemo }: NavbarProps) {
     return (
         <header className="absolute top-0 left-0 w-full z-50">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 h-24 flex justify-between items-center">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 h-24 flex justify-between items-center min-w-0">
                 {/* Logo inverted to be white on dark background */}
                 <a href="/" className="flex items-center transition-opacity hover:opacity-80">
                     <Logo className="w-20" imgClassName="object-contain w-full h-full brightness-0 invert" />
                 </a>
 
-                <nav className="flex items-center gap-6">
+                <nav className="flex items-center gap-6 min-w-0 shrink-0">
                     <a href="#beneficios" className="hidden sm:block text-sm font-medium text-slate-300 hover:text-white transition-colors">
                         Beneficios
                     </a>

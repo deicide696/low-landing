@@ -25,14 +25,14 @@ export default function Hero({ onOpenDemo }: HeroProps) {
       <div className="absolute inset-0 bg-grid-white/[0.04] bg-[size:32px_32px]" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-gradient-to-b from-blue-500/20 to-transparent blur-3xl rounded-full opacity-50" />
 
-      <div className="relative mx-auto max-w-7xl w-full grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 lg:items-center">
+      <div className="relative mx-auto max-w-7xl w-full min-w-0 grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 lg:items-center">
 
         {/* Text Content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-2xl"
+          className="max-w-2xl min-w-0"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8">
             <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
@@ -47,18 +47,18 @@ export default function Hero({ onOpenDemo }: HeroProps) {
             Un auxiliar administrativo invisible que captura facturas y pagos automáticamente por ti. Disfruta un tablero claro, ahorra horas cada semana y despídete del caos de fin de mes. <strong>Modelo "pay-and-go", sin proyectos largos.</strong>
           </motion.p>
 
-          <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4">
-            <button onClick={() => onOpenDemo("Hero: Solicitar demo gratis")} className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-950 transition-all hover:bg-gray-100 hover:scale-[1.02] shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+          <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto min-w-0">
+            <button onClick={() => onOpenDemo("Hero: Solicitar demo gratis")} className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-950 transition-all hover:bg-gray-100 hover:scale-[1.02] shadow-[0_0_20px_rgba(255,255,255,0.3)] w-full sm:w-auto">
               Solicitar demo gratis
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 shrink-0" />
             </button>
-            <button onClick={() => onOpenDemo("Hero: Ver cómo funciona")} className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/5 border border-white/10">
+            <button onClick={() => onOpenDemo("Hero: Ver cómo funciona")} className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/5 border border-white/10 w-full sm:w-auto">
               Ver cómo funciona
             </button>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mt-10 flex items-center gap-4 text-sm text-slate-400">
-            <p>Pensado para <span className="text-white font-medium">PyMES, Startups, Agencias e Independientes</span></p>
+          <motion.div variants={itemVariants} className="mt-10 flex items-center gap-4 text-sm text-slate-400 min-w-0">
+            <p className="min-w-0">Pensado para <span className="text-white font-medium">PyMES, Startups, Agencias e Independientes</span></p>
           </motion.div>
         </motion.div>
 
@@ -67,17 +67,17 @@ export default function Hero({ onOpenDemo }: HeroProps) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative lg:h-[600px] flex items-center"
+          className="relative lg:h-[600px] flex items-center min-w-0"
         >
-          <div className="relative w-full lg:h-[90%] glass-dark rounded-2xl p-6 shadow-2xl overflow-hidden shadow-black/50">
+          <div className="relative w-full min-w-0 lg:h-[90%] glass-dark rounded-2xl p-6 shadow-2xl overflow-hidden shadow-black/50">
             {/* Window header */}
-            <div className="flex items-center gap-2 mb-6 border-b border-white/5 pb-4">
-              <div className="flex gap-1.5">
+            <div className="flex items-center gap-2 mb-6 border-b border-white/5 pb-4 min-w-0 overflow-hidden">
+              <div className="flex gap-1.5 shrink-0">
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
-              <div className="mx-auto text-xs text-slate-500 font-medium tracking-wide">AUXILIAR ADMINISTRATIVO JUNIOR</div>
+              <div className="mx-auto text-xs text-slate-500 font-medium tracking-wide truncate min-w-0">AUXILIAR ADMINISTRATIVO JUNIOR</div>
             </div>
 
             <div className="space-y-4">
@@ -93,18 +93,18 @@ export default function Hero({ onOpenDemo }: HeroProps) {
                     <Mail className="w-5 h-5 text-blue-400" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center justify-between mb-1 min-w-0 gap-2">
                       <motion.span
                         animate={{ opacity: [1, 0.5, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className="text-xs font-semibold text-blue-400 uppercase tracking-wider flex items-center gap-2"
+                        className="text-xs font-semibold text-blue-400 uppercase tracking-wider flex items-center gap-2 min-w-0 truncate"
                       >
                         NUEVO CORREO
-                        <span className="text-[10px] lowercase font-medium opacity-80">Inteligencia Artificial</span>
+                        <span className="text-[10px] lowercase font-medium opacity-80 truncate">Inteligencia Artificial</span>
                       </motion.span>
                       <span className="text-[10px] text-slate-500 font-medium">Ahora</span>
                     </div>
-                    <div className="text-sm text-white font-medium truncate flex items-center gap-2">
+                    <div className="text-sm text-white font-medium truncate flex items-center gap-2 min-w-0">
                       Recibo de pago - Internet Tigo
                       <span className="inline-flex items-center rounded-full bg-blue-500/20 px-1.5 py-0.5 text-[10px] font-medium text-blue-400 ring-1 ring-inset ring-blue-500/30">
                         Nuevo
@@ -159,7 +159,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
                     </div>
 
                     <div className="space-y-3">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="p-2.5 rounded-xl bg-white/5 border border-white/5">
                           <span className="text-[10px] text-slate-500 block uppercase tracking-tight mb-1">Proveedor</span>
                           <span className="text-sm text-white font-medium">Tigo Colombia</span>
@@ -170,7 +170,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="p-2.5 rounded-xl bg-white/5 border border-white/5">
                           <span className="text-[10px] text-slate-500 block uppercase tracking-tight mb-1">Fecha Pago</span>
                           <span className="text-sm text-white font-medium">03 Mar 2026</span>
@@ -190,7 +190,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 3.5, duration: 0.5 }}
-                className="flex items-center justify-between text-xs text-slate-400 mt-4 px-2"
+                className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400 mt-4 px-2 min-w-0"
               >
                 <span className="flex items-center gap-1.5"><FileDigit className="w-4 h-4" /> Consolidado Google Sheets</span>
                 <span className="text-emerald-400">+1 Registro actualizado</span>
