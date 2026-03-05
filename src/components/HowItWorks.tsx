@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MailSearch, FileText, LayoutGrid, BellRing } from "lucide-react";
+import { MailCheck, FileText, Database, BellRing } from "lucide-react";
 
 export default function HowItWorks() {
   const steps = [
@@ -7,7 +7,7 @@ export default function HowItWorks() {
       id: 1,
       name: "Detecta facturas o pagos",
       description: "La IA monitorea tu bandeja de entrada identificando automáticamente qué correos tienen la información relevante (y descarta la basura).",
-      icon: MailSearch,
+      icon: MailCheck,
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ export default function HowItWorks() {
       id: 3,
       name: "Clasifica y registra",
       description: "Cruza la información de caja y anota en tu Google Sheets o Excel si el documento está 'Pendiente' o 'Pagado', manteniendo todo en orden.",
-      icon: LayoutGrid,
+      icon: Database,
     },
     {
       id: 4,
@@ -49,7 +49,7 @@ export default function HowItWorks() {
         <div className="mx-auto mt-16 max-w-4xl sm:mt-24">
           <div className="relative">
             {/* Connection Line */}
-            <div className="absolute top-8 left-[31px] bottom-8 w-0.5 bg-gradient-to-b from-blue-600/50 via-blue-600/20 to-transparent hidden md:block" />
+            <div className="absolute top-8 left-[31px] bottom-8 w-0.5 bg-slate-200 hidden md:block" />
 
             <div className="space-y-12">
               {steps.map((step, index) => (
@@ -61,8 +61,8 @@ export default function HowItWorks() {
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   className="relative flex flex-col md:flex-row gap-8 items-start"
                 >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-600 shadow-lg shadow-blue-600/25 z-10">
-                    <step.icon className="h-8 w-8 text-white" aria-hidden="true" />
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-50 shadow-sm ring-1 ring-slate-900/5 z-10">
+                    <step.icon className="h-8 w-8 text-blue-600" aria-hidden="true" />
                   </div>
 
                   <div className="md:pt-2">
