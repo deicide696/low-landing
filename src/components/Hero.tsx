@@ -1,7 +1,11 @@
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Box, CheckCircle2, FileDigit, Mail } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, FileDigit, Mail } from "lucide-react";
 
-export default function Hero() {
+interface HeroProps {
+  onOpenDemo: (source: string) => void;
+}
+
+export default function Hero({ onOpenDemo }: HeroProps) {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -44,11 +48,11 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4">
-            <button className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-950 transition-all hover:bg-gray-100 hover:scale-[1.02] shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-              Empezar ahora
+            <button onClick={() => onOpenDemo("Hero: Solicitar demo gratis")} className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-950 transition-all hover:bg-gray-100 hover:scale-[1.02] shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+              Solicitar demo gratis
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
-            <button className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/5 border border-white/10">
+            <button onClick={() => onOpenDemo("Hero: Ver cómo funciona")} className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/5 border border-white/10">
               Ver cómo funciona
             </button>
           </motion.div>
@@ -80,7 +84,7 @@ export default function Hero() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
-              <div className="mx-auto text-xs text-slate-500 font-medium tracking-wide">CAJA DE ENTRADA & REGISTRO</div>
+              <div className="mx-auto text-xs text-slate-500 font-medium tracking-wide">AUXILIAR ADMINISTRATIVO JUNIOR</div>
             </div>
 
             <div className="space-y-4">
@@ -91,11 +95,32 @@ export default function Hero() {
                 transition={{ delay: 1, duration: 0.5 }}
                 className="bg-slate-800/50 p-4 rounded-xl border border-white/5 relative"
               >
-                <div className="flex gap-3">
-                  <Mail className="w-5 h-5 text-blue-400 shrink-0" />
-                  <div>
-                    <div className="text-sm text-white font-medium">Factura Proveedor IT #992</div>
-                    <div className="text-xs text-slate-400 mt-1">Adjunto: F-992.pdf</div>
+                <div className="flex gap-4">
+                  <div className="flex-none w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
+                    <Mail className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between mb-1">
+                      <motion.span
+                        animate={{ opacity: [1, 0.5, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="text-xs font-semibold text-blue-400 uppercase tracking-wider flex items-center gap-2"
+                      >
+                        NUEVO CORREO
+                        <span className="text-[10px] lowercase font-medium opacity-80">Inteligencia Artificial</span>
+                      </motion.span>
+                      <span className="text-[10px] text-slate-500 font-medium">Ahora</span>
+                    </div>
+                    <div className="text-sm text-white font-medium truncate flex items-center gap-2">
+                      Recibo de pago - Internet Tigo
+                      <span className="inline-flex items-center rounded-full bg-blue-500/20 px-1.5 py-0.5 text-[10px] font-medium text-blue-400 ring-1 ring-inset ring-blue-500/30">
+                        Nuevo
+                      </span>
+                    </div>
+                    <div className="text-[11px] text-slate-400 mt-1 flex items-center gap-1.5">
+                      <FileDigit className="w-3 h-3 text-slate-500" />
+                      Recibo_Tigo_Mar2026.pdf
+                    </div>
                   </div>
                 </div>
                 {/* Extraction Animation Overlay */}
@@ -114,37 +139,53 @@ export default function Hero() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 2.2 }}
                 >
-                  <Box className="w-6 h-6 text-slate-600 animate-pulse" />
+                  <Sparkles className="w-6 h-6 text-blue-400 animate-pulse" />
                 </motion.div>
               </div>
 
               {/* Parsed Result */}
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.5, duration: 0.5 }}
-                className="bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2.5, duration: 0.5, type: "spring" }}
+                className="bg-emerald-500/5 border border-emerald-500/20 p-5 rounded-2xl relative overflow-hidden group"
               >
-                <div className="flex gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                  <div className="w-full">
-                    <div className="text-sm text-emerald-400 font-medium">Datos capturados y registrados</div>
-                    <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                      <div>
-                        <span className="text-slate-500 block">Emisor</span>
-                        <span className="text-slate-300 font-medium">Tech Solutions SAC</span>
+                {/* Subtle success glow */}
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-emerald-500/10 blur-2xl rounded-full" />
+
+                <div className="flex gap-4">
+                  <div className="flex-none w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Extracción Exitosa</span>
+                      <span className="inline-flex items-center rounded-full bg-emerald-500/20 px-1.5 py-0.5 text-[10px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/30">
+                        Listo
+                      </span>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="p-2.5 rounded-xl bg-white/5 border border-white/5">
+                          <span className="text-[10px] text-slate-500 block uppercase tracking-tight mb-1">Proveedor</span>
+                          <span className="text-sm text-white font-medium">Tigo Colombia</span>
+                        </div>
+                        <div className="p-2.5 rounded-xl bg-white/5 border border-white/5">
+                          <span className="text-[10px] text-slate-500 block uppercase tracking-tight mb-1">Total Pagado</span>
+                          <span className="text-sm text-white font-medium">$ 89.900</span>
+                        </div>
                       </div>
-                      <div>
-                        <span className="text-slate-500 block">Total</span>
-                        <span className="text-slate-300 font-medium">$ 450.00</span>
-                      </div>
-                      <div>
-                        <span className="text-slate-500 block">Fecha</span>
-                        <span className="text-slate-300 font-medium">29 Oct 2023</span>
-                      </div>
-                      <div>
-                        <span className="text-slate-500 block">Estado</span>
-                        <span className="inline-flex px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-500">Pendiente</span>
+
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="p-2.5 rounded-xl bg-white/5 border border-white/5">
+                          <span className="text-[10px] text-slate-500 block uppercase tracking-tight mb-1">Fecha Pago</span>
+                          <span className="text-sm text-white font-medium">03 Mar 2026</span>
+                        </div>
+                        <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                          <span className="text-[10px] text-emerald-500/70 block uppercase tracking-tight mb-1">Estado</span>
+                          <span className="text-sm text-emerald-400 font-bold">Registrado</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -158,7 +199,7 @@ export default function Hero() {
                 transition={{ delay: 3.5, duration: 0.5 }}
                 className="flex items-center justify-between text-xs text-slate-400 mt-4 px-2"
               >
-                <span className="flex items-center gap-1.5"><FileDigit className="w-4 h-4" /> Consolidado Sheet</span>
+                <span className="flex items-center gap-1.5"><FileDigit className="w-4 h-4" /> Consolidado Google Sheets</span>
                 <span className="text-emerald-400">+1 Registro actualizado</span>
               </motion.div>
 

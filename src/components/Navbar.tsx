@@ -1,6 +1,10 @@
 import Logo from "./Logo";
 
-export default function Navbar() {
+interface NavbarProps {
+    onOpenDemo: (source: string) => void;
+}
+
+export default function Navbar({ onOpenDemo }: NavbarProps) {
     return (
         <header className="absolute top-0 left-0 w-full z-50">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 h-24 flex justify-between items-center">
@@ -10,14 +14,11 @@ export default function Navbar() {
                 </a>
 
                 <nav className="flex items-center gap-6">
-                    <a href="#" className="hidden sm:block text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                    <a href="#beneficios" className="hidden sm:block text-sm font-medium text-slate-300 hover:text-white transition-colors">
                         Beneficios
                     </a>
-                    <a href="#" className="hidden sm:block text-sm font-medium text-slate-300 hover:text-white transition-colors">
-                        Cómo funciona
-                    </a>
-                    <button className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-sm font-medium backdrop-blur-md transition-all border border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
-                        Empezar
+                    <button onClick={() => onOpenDemo("Navbar: Demo gratis")} className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-sm font-medium backdrop-blur-md transition-all border border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
+                        Demo gratis
                     </button>
                 </nav>
             </div>

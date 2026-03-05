@@ -18,7 +18,7 @@ export default function HowItWorks() {
     {
       id: 3,
       name: "Clasifica y registra",
-      description: "Cruza la información de caja y anota en tu Sheet/Excel si el documento está 'Pendiente' o 'Pagado', manteniendo todo en orden.",
+      description: "Cruza la información de caja y anota en tu Google Sheets o Excel si el documento está 'Pendiente' o 'Pagado', manteniendo todo en orden.",
       icon: Database,
     },
     {
@@ -36,10 +36,11 @@ export default function HowItWorks() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl text-balance">
-            Un flujo de trabajo invisible, de principio a fin
-          </h2>
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <h2 className="text-base font-semibold leading-7 text-blue-600">Proceso Inteligente</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Tu administración en piloto automático
+          </p>
           <p className="mt-4 text-lg leading-8 text-slate-600">
             Nuestro Auxiliar Administrativo se encarga del trabajo sucio para que tú tengas la visibilidad.
           </p>

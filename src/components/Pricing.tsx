@@ -1,140 +1,183 @@
 import { useState } from "react";
-import { Check, Sparkles, Workflow, ArrowRight } from "lucide-react";
+import { Loader2, CheckCircle2 } from "lucide-react";
 
-export default function Pricing() {
-  const [formData, setFormData] = useState({ name: "", company: "", needs: "" });
+interface PricingProps {
+  onOpenDemo: (source: string) => void;
+}
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+export default function Pricing({ onOpenDemo }: PricingProps) {
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", needs: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Solicitud Custom Automation - ${formData.company}`);
-    const body = encodeURIComponent(`Hola Camilo,\n\nSoy ${formData.name} de ${formData.company}.\n\nNecesitamos ayuda con lo siguiente:\n${formData.needs}\n\nQuedamos atentos a los próximos pasos.`);
-    window.location.href = `mailto:camilo@flowlow.co?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("https://formspree.io/f/maqpwngz", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          plan: "Solución personalizada",
+          origen: "Pricing: Formulario Solución Personalizada",
+          nombre: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          necesidad: formData.needs
+        }),
+      });
+      if (response.ok) {
+        setIsSuccess(true);
+        setFormData({ name: "", email: "", phone: "", needs: "" });
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section className="bg-slate-50 py-24 sm:py-32 relative">
+    <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="text-base font-semibold leading-7 text-blue-600 tracking-wide uppercase">Planes y Precios</h2>
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-base font-semibold leading-7 text-blue-600">Inversión Inteligente</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            Soluciones a tu medida
+            La automatización que se paga sola
           </p>
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            Escoge entre nuestro producto empaquetado y listo para usar, o cuéntanos qué proceso específico necesitas automatizar.
+            Recupera tu tiempo y elimina errores. Elige el plan que impulsará el crecimiento de tu negocio.
           </p>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
-
-          {/* Pre-build Plan */}
-          <div className="flex flex-col justify-between rounded-3xl ring-1 ring-slate-200 bg-white p-8 xl:p-10 shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 -m-6 h-24 w-24 rounded-full bg-blue-500/10 blur-2xl" />
+        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-y-6 lg:max-w-none lg:grid-cols-2 lg:gap-x-8">
+          {/* Tier 1 */}
+          <div className="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-slate-200 xl:p-10 hover:ring-blue-600 transition-all">
             <div>
               <div className="flex items-center justify-between gap-x-4">
-                <h3 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-blue-500" />
-                  Pre-build (Email Extractor)
-                </h3>
+                <h3 className="text-lg font-semibold leading-8 text-slate-900">Auxiliar administrativo Junior</h3>
               </div>
               <p className="mt-4 text-sm leading-6 text-slate-600">
-                Paquete estándar para extraer y registrar datos de facturas y pagos automáticamente de tus correos. Rápido y sin implementación.
+                Ideal para el manejo automático de recibos, facturas y pagos mensuales.
               </p>
-              <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="text-4xl font-bold tracking-tight text-slate-900">$240.000</span>
+              <div className="mt-6 flex items-baseline gap-x-2">
+                <span className="text-4xl font-bold tracking-tight text-slate-900">$ 249.900</span>
                 <span className="text-sm font-semibold leading-6 text-slate-600">COP / mes</span>
-              </p>
+              </div>
+              <div className="mt-2 flex flex-col gap-1">
+                <div className="flex items-baseline gap-x-2">
+                  <span className="text-sm line-through text-slate-400 font-medium">$ 830.000 COP</span>
+                  <span className="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
+                    -70% Lanzamiento
+                  </span>
+                </div>
+              </div>
               <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-slate-600">
                 {[
                   "Hasta 200 correos procesados/mes",
                   "Lectura de comprobantes de pago",
                   "Lectura de facturas y adjuntos",
-                  "Registro directo a tu Dashboard/Sheet",
+                  "Registro directo a tu Google Sheets o Excel",
                   "Ajustes de reglas estándar"
                 ].map((feature) => (
                   <li key={feature} className="flex gap-x-3">
-                    <Check className="h-5 w-5 flex-none text-blue-500" aria-hidden="true" />
+                    <CheckCircle2 className="h-6 w-5 flex-none text-blue-600" aria-hidden="true" />
                     {feature}
                   </li>
                 ))}
               </ul>
             </div>
-            <a
-              href="#"
-              className="mt-8 block rounded-xl bg-slate-900 px-3 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 transition-all font-medium"
+            <button
+              onClick={() => onOpenDemo("Pricing: Auxiliar Junior")}
+              className="mt-8 block w-full rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all"
             >
-              Empezar ahora
-            </a>
+              Solicitar demo gratis
+            </button>
           </div>
 
-          {/* Custom Automation Plan */}
-          <div className="flex flex-col justify-between rounded-3xl ring-1 ring-slate-800 bg-slate-950 p-8 xl:p-10 shadow-2xl glass-dark relative">
-            <div className="absolute top-0 right-0 -m-6 h-24 w-24 rounded-full bg-emerald-500/10 blur-2xl" />
+          {/* Tier 2 */}
+          <div className="flex flex-col justify-between rounded-3xl bg-slate-900 p-8 ring-1 ring-slate-700 xl:p-10">
             <div>
               <div className="flex items-center justify-between gap-x-4">
-                <h3 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-                  <Workflow className="h-5 w-5 text-emerald-400" />
-                  Custom Automation (Agile)
-                </h3>
+                <h3 className="text-lg font-semibold leading-8 text-white">Solución personalizada</h3>
+                <p className="rounded-full bg-blue-500/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-400 ring-1 ring-inset ring-blue-400/20">
+                  Business
+                </p>
               </div>
               <p className="mt-4 text-sm leading-6 text-slate-300">
-                Soluciones personalizadas con alcance cerrado en <em>sprints</em> de menos de 3 meses. Precio fijo sin sorpresas ni proyectos eternos.
+                Diseñamos un flujo de IA a la medida de los retos específicos de tu negocio.
               </p>
+              <div className="mt-6 flex items-baseline gap-x-1 text-white">
+                <span className="text-sm font-semibold leading-6">Cotización a medida</span>
+              </div>
 
-              <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+              {!isSuccess ? (
+                <form onSubmit={handleSubmit} className="mt-8 space-y-4">
                   <div>
-                    <label htmlFor="name" className="sr-only">Nombre</label>
                     <input
                       type="text"
-                      id="name"
                       required
                       placeholder="Tu nombre"
-                      className="w-full rounded-lg border-0 bg-white/10 px-3 py-2 text-white shadow-sm ring-1 ring-inset ring-white/20 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-sm sm:leading-6 placeholder:text-slate-400"
+                      className="w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 placeholder:text-slate-500 font-semibold"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="sr-only">Empresa</label>
                     <input
-                      type="text"
-                      id="company"
+                      type="email"
                       required
-                      placeholder="Empresa"
-                      className="w-full rounded-lg border-0 bg-white/10 px-3 py-2 text-white shadow-sm ring-1 ring-inset ring-white/20 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-sm sm:leading-6 placeholder:text-slate-400"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      placeholder="Tu correo"
+                      className="w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 placeholder:text-slate-500 font-semibold"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
                   </div>
+                  <div>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="WhatsApp / Celular"
+                      className="w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 placeholder:text-slate-500 font-semibold"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    />
+                  </div>
+                  <div>
+                    <textarea
+                      required
+                      rows={3}
+                      placeholder="¿Qué proceso específico necesitas automatizar?"
+                      className="w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 placeholder:text-slate-500 font-semibold resize-none"
+                      value={formData.needs}
+                      onChange={(e) => setFormData({ ...formData, needs: e.target.value })}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full rounded-md bg-white px-3.5 py-2.5 text-center text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Enviando...
+                      </div>
+                    ) : (
+                      "Solicitar propuesta"
+                    )}
+                  </button>
+                </form>
+              ) : (
+                <div className="mt-8 p-4 rounded-md bg-emerald-500/10 border border-emerald-500/20">
+                  <p className="text-emerald-400 text-sm font-medium text-center">
+                    ¡Gracias! Te contactaremos pronto.
+                  </p>
                 </div>
-                <div>
-                  <label htmlFor="needs" className="sr-only">¿Qué proceso necesitas automatizar?</label>
-                  <textarea
-                    id="needs"
-                    rows={3}
-                    required
-                    placeholder="¿Qué proceso repetitivo te quita más tiempo hoy?"
-                    className="w-full rounded-lg border-0 bg-white/10 px-3 py-2 text-white shadow-sm ring-1 ring-inset ring-white/20 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-sm sm:leading-6 placeholder:text-slate-400 resize-none"
-                    value={formData.needs}
-                    onChange={(e) => setFormData({ ...formData, needs: e.target.value })}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-3 py-3 text-sm font-semibold text-slate-950 shadow-sm hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 transition-all font-medium"
-                >
-                  Enviar solicitud a Camilo
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
-
+              )}
             </div>
           </div>
-
         </div>
       </div>
-    </section>
-  )
+    </div>
+  );
 }

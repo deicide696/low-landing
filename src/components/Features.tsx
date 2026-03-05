@@ -31,18 +31,18 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="bg-white py-24 sm:py-32">
+    <section id="beneficios" className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         <div className="mx-auto max-w-2xl lg:text-center shrink-0">
           <h2 className="text-base font-semibold leading-7 text-blue-600 uppercase tracking-wide">
-            Beneficios Clave
+            Potencia tu Crecimiento
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl text-balance">
-            Despídete del trabajo manual repetitivo
+            Libera a tu equipo del trabajo operativo
           </p>
           <p className="mt-6 text-lg leading-8 text-slate-600 text-balance">
-            Si recibes decenas de facturas y comprobantes al mes dispersos por correo, tu equipo no debería gastar horas transcribiendo.
+            Si tu equipo gasta horas procesando facturas y comprobantes manualmente, estás perdiendo dinero. Nuestra IA elimina el error humano y devuelve el enfoque a lo que realmente importa.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function Features() {
               </dt>
               <dd className="mt-4 flex flex-auto flex-col text-sm leading-6 text-slate-300">
                 <p className="flex-auto">
-                  La automatización no debe ser larga ni requerir consultoría infinita. En <em>Low</em> compilas reglas simples y haces ajustes rápidos, todo bajo un modelo estándar que empieza a funcionar desde el día uno.
+                  La automatización no debe ser larga ni requerir consultoría infinita. En <em>Low</em> defines reglas simples y haces ajustes rápidos, todo bajo un modelo estándar que empieza a funcionar desde el día uno.
                 </p>
               </dd>
             </motion.div>
