@@ -41,8 +41,8 @@ export default function Pricing() {
                 Paquete estándar para extraer y registrar datos de facturas y pagos automáticamente de tus correos. Rápido y sin implementación.
               </p>
               <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="text-4xl font-bold tracking-tight text-slate-900">$60</span>
-                <span className="text-sm font-semibold leading-6 text-slate-600">USD / mes</span>
+                <span className="text-4xl font-bold tracking-tight text-slate-900">$240.000</span>
+                <span className="text-sm font-semibold leading-6 text-slate-600">COP / mes</span>
               </p>
               <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-slate-600">
                 {[
