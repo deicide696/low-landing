@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 
 interface PricingProps {
@@ -91,12 +90,12 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
                 ))}
               </ul>
             </div>
-            <Link
-              to="/register"
+            <button
+              onClick={() => onOpenDemo("Pricing: Auxiliar Junior")}
               className="mt-8 block w-full rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all"
             >
-              Acceder a mi plan
-            </Link>
+              Solicitar demo gratis
+            </button>
           </div>
 
           {/* Tier 2 - Turbo */}
