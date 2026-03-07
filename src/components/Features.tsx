@@ -1,25 +1,31 @@
 import { motion } from "framer-motion";
+import { Clock, Zap, CheckSquare, Search, Users, Rocket } from "lucide-react";
 
 const features = [
   {
     name: "Cero cierres de mes caóticos.",
     description: "Captura facturas y comprobantes en tiempo real automáticamente, para que no pierdas tiempo ni información cuando más importa.",
+    icon: Clock,
   },
   {
     name: "Extracción sin errores manuales.",
     description: "La IA analiza los PDFs y correos para extraer proveedor, fecha, monto, concepto y estado de pago sin copiar ni pegar una sola línea.",
+    icon: Zap,
   },
   {
     name: "Certeza absoluta de saldos.",
     description: "Siempre sabrás exactamente qué cuentas tienes por pagar y qué ya fue liquidado. Mantén la prioridad en tiempo real.",
+    icon: CheckSquare,
   },
   {
     name: "Trazabilidad completa.",
     description: "Si alguien tiene una duda sobre un pago o una factura, rastrea inmediatamente el correo y el registro original en un solo lugar.",
+    icon: Search,
   },
   {
     name: "No contrates personal extra.",
     description: "Un 'auxiliar digital' muy barato que procesa hasta 200 correos al mes por ti. Delega las tareas repetitivas y libera el talento humano.",
+    icon: Users,
   },
 ];
 
@@ -52,8 +58,8 @@ export default function Features() {
                 className="flex flex-col group"
               >
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-slate-900">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white">
-                    {String(index + 1).padStart(2, "0")}
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition-all duration-200 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-blue-200">
+                    <feature.icon className="h-5 w-5" />
                   </span>
                   {feature.name}
                 </dt>
@@ -73,8 +79,8 @@ export default function Features() {
             >
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/20 blur-3xl rounded-full" />
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/30 text-emerald-300 font-bold text-sm">
-                  06
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400 transition-all duration-200 group-hover:bg-emerald-500 group-hover:text-white group-hover:shadow-md group-hover:shadow-emerald-500/30">
+                  <Rocket className="h-5 w-5" />
                 </span>
                 Estandariza sin un "Proyecto"
               </dt>
