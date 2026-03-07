@@ -8,7 +8,11 @@ const routeLabels: Record<string, string> = {
   '/connect-email': 'Conectar Correo',
 }
 
-export default function DashboardTopbar() {
+interface DashboardTopbarProps {
+  onOpenSidebar: () => void
+}
+
+export default function DashboardTopbar({ onOpenSidebar }: DashboardTopbarProps) {
   const { user } = useAuth()
   const location = useLocation()
   const pageTitle = routeLabels[location.pathname] ?? 'Dashboard'
@@ -20,8 +24,11 @@ export default function DashboardTopbar() {
   return (
     <header className="h-16 flex items-center justify-between px-6 border-b border-white/5 bg-slate-900/40 backdrop-blur-md sticky top-0 z-40">
       <div className="flex items-center gap-4">
-        {/* Mobile menu placeholder */}
-        <button className="lg:hidden text-slate-400 hover:text-white transition-colors">
+        <button
+          className="lg:hidden text-slate-400 hover:text-white transition-colors"
+          onClick={onOpenSidebar}
+          aria-label="Abrir menú"
+        >
           <Menu className="h-5 w-5" />
         </button>
         <h1 className="text-base font-semibold text-white font-[Outfit]">{pageTitle}</h1>
