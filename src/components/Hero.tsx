@@ -36,7 +36,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8">
             <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
-            Auxiliar Administrativo AI
+            Cleo AI
           </motion.div>
 
           <motion.h1 variants={itemVariants} className="text-5xl sm:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
@@ -44,7 +44,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
           </motion.h1>
 
           <motion.p variants={itemVariants} className="mt-6 text-lg tracking-tight sm:text-xl leading-relaxed text-slate-300">
-            Un auxiliar administrativo invisible que captura facturas y pagos automáticamente por ti. Disfruta un tablero claro, ahorra horas cada semana y despídete del caos de fin de mes. <strong>Modelo "pay-and-go", sin proyectos largos.</strong>
+            Cleo es tu auxiliar administrativo invisible que captura facturas y pagos automáticamente por ti. Disfruta un tablero claro, ahorra horas cada semana y despídete del caos de fin de mes. <strong>Modelo "pay-and-go", sin proyectos largos.</strong>
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto min-w-0">
@@ -77,7 +77,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
-              <div className="mx-auto text-xs text-slate-500 font-medium tracking-wide truncate min-w-0">AUXILIAR ADMINISTRATIVO JUNIOR</div>
+              <div className="mx-auto text-xs text-slate-500 font-medium tracking-wide truncate min-w-0">CLEO JUNIOR</div>
             </div>
 
             <div className="space-y-4">

@@ -59,7 +59,7 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
             </div>
             <div>
               <div className="flex items-center justify-between gap-x-4">
-                <h3 className="text-lg font-semibold leading-8 text-slate-900">Auxiliar administrativo <span className="text-blue-600 font-bold">Junior</span></h3>
+                <h3 className="text-lg font-semibold leading-8 text-slate-900">Cleo <span className="text-blue-600 font-bold">Junior</span></h3>
               </div>
               <p className="mt-4 text-sm leading-6 text-slate-600">
                 Ideal para el manejo automático de recibos, facturas y pagos mensuales.
@@ -102,7 +102,7 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
           <div className="flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-slate-200 xl:p-10 hover:ring-blue-600 transition-all">
             <div>
               <div className="flex items-center justify-between gap-x-4">
-                <h3 className="text-lg font-semibold leading-8 text-slate-900">Auxiliar administrativo <span className="text-blue-600 font-bold">Turbo</span> 🚀</h3>
+                <h3 className="text-lg font-semibold leading-8 text-slate-900">Cleo <span className="text-blue-600 font-bold">Turbo</span> 🚀</h3>
               </div>
               <p className="mt-4 text-sm leading-6 text-slate-600">
                 Más volumen, asistencia dedicada e integración API para crecer sin límites.

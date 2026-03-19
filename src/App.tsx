@@ -1,4 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import ScrollToTop from './components/ScrollToTop'
+import HomePage from './pages/HomePage'
 import LandingPage from './pages/LandingPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -12,9 +15,15 @@ import AutomationPage from './pages/dashboard/AutomationPage'
 import ConnectEmailPage from './pages/dashboard/ConnectEmailPage'
 
 export default function App() {
+  const location = useLocation()
+
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
+    <>
+    <ScrollToTop />
+    <AnimatePresence mode="wait">
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/auxiliar-administrativo" element={<LandingPage />} />
       <Route path="/auth/callback" element={<AuthCallbackPage />} />
       <Route path="/auth/email-callback" element={<EmailCallbackPage />} />
 
@@ -31,5 +40,7 @@ export default function App() {
         </Route>
       </Route>
     </Routes>
+    </AnimatePresence>
+    </>
   )
 }

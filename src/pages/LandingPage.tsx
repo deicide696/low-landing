@@ -6,6 +6,7 @@ import HowItWorks from "../components/HowItWorks"
 import Pricing from "../components/Pricing"
 import Footer from "../components/Footer"
 import DemoModal from "../components/DemoModal"
+import PageTransition from "../components/PageTransition"
 
 export default function LandingPage() {
   const [isDemoOpen, setIsDemoOpen] = useState(false)
@@ -17,7 +18,7 @@ export default function LandingPage() {
   }
 
   return (
-    <>
+    <PageTransition>
       <div className="min-h-screen w-full max-w-full bg-slate-50 font-sans overflow-x-hidden">
         <Navbar onOpenDemo={openDemo} />
         <Hero onOpenDemo={openDemo} />
@@ -31,6 +32,6 @@ export default function LandingPage() {
         onClose={() => setIsDemoOpen(false)}
         source={demoSource}
       />
-    </>
+    </PageTransition>
   )
 }

@@ -41,7 +41,7 @@ export default function HowItWorks() {
             Un flujo de trabajo invisible, de principio a fin
           </h2>
           <p className="mt-4 text-lg leading-8 text-slate-600">
-            Nuestro Auxiliar Administrativo se encarga del trabajo sucio para que tú tengas la visibilidad.
+            Cleo se encarga del trabajo sucio para que tú tengas la visibilidad.
           </p>
         </div>
 

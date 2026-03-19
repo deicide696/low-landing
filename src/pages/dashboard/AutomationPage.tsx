@@ -74,7 +74,7 @@ export default function AutomationPage() {
       <motion.div variants={itemVariants} className="flex items-start justify-between">
         <div>
           <h2 className="text-2xl font-bold text-white font-[Outfit]">Mi Automatización</h2>
-          <p className="mt-1 text-sm text-slate-400">Auxiliar Administrativo Junior</p>
+          <p className="mt-1 text-sm text-slate-400">Cleo Junior</p>
         </div>
         <button
           onClick={fetchData}
@@ -94,7 +94,7 @@ export default function AutomationPage() {
               <Zap className="h-6 w-6 text-blue-400" />
             </div>
             <div>
-              <h3 className="text-base font-semibold text-white">Auxiliar Administrativo Junior</h3>
+              <h3 className="text-base font-semibold text-white">Cleo Junior</h3>
               <p className="text-sm text-slate-400 mt-0.5">Extracción automática de facturas y pagos</p>
             </div>
           </div>
