@@ -5,7 +5,6 @@ import {
   Flame,
   Scale,
   Brain,
-  ShoppingCart,
   ArrowRight,
   CheckCircle2,
   FileDigit,
@@ -34,13 +33,6 @@ const otherProducts = [
       "Asistente de psicología terapéutica que analiza patrones de comportamiento para terapeutas.",
     icon: Brain,
     color: "pink",
-  },
-  {
-    name: "Charlie",
-    description:
-      "Optimización de ventas e-commerce analizando catálogos de productos y procesos de checkout.",
-    icon: ShoppingCart,
-    color: "emerald",
   },
 ];
 
@@ -221,7 +213,7 @@ export default function HomeProducts() {
           <h3 className="text-lg font-semibold text-slate-400 mb-6 text-center uppercase tracking-wide">
             Próximamente
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8">
             {otherProducts.map((product, index) => {
               const colors = colorMap[product.color];
               return (
@@ -233,22 +225,22 @@ export default function HomeProducts() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="group relative glass-dark rounded-2xl p-5 border border-white/5 hover:border-white/10 transition-all duration-300"
                 >
-                  <div className="relative">
+                  <Link to={`/${product.name.toLowerCase()}`} className="block relative focus:outline-none">
                     <div className="flex items-center gap-3 mb-3">
                       <div
                         className={`flex h-10 w-10 items-center justify-center rounded-lg ${colors.bg} border ${colors.border}`}
                       >
                         <product.icon className={`h-5 w-5 ${colors.text}`} />
                       </div>
-                      <h4 className="text-lg font-bold text-white">{product.name}</h4>
+                      <h4 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">{product.name}</h4>
                     </div>
                     <p className="text-sm leading-6 text-slate-400 mb-4">
                       {product.description}
                     </p>
-                    <span className="inline-flex items-center rounded-full bg-slate-800 px-2.5 py-1 text-xs font-medium text-slate-400 ring-1 ring-inset ring-white/10">
-                      Próximamente
+                    <span className="inline-flex items-center rounded-full bg-slate-800 px-2.5 py-1 text-xs font-medium text-slate-400 ring-1 ring-inset ring-white/10 group-hover:bg-slate-700 transition-colors">
+                      Unirte a lista de espera
                     </span>
-                  </div>
+                  </Link>
                 </motion.div>
               );
             })}
