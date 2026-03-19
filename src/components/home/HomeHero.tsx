@@ -64,7 +64,7 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
             Low lee tu correo, extrae los datos de cada factura y comprobante de
             pago, y los organiza en un tablero claro — automáticamente.{" "}
             <strong className="text-white">
-              Deja de perseguir PDFs y cierres de mes caóticos.
+              Ve diariamente tu flujo de caja.
             </strong>
           </motion.p>
 
@@ -95,7 +95,7 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
             <p className="min-w-0">
               Para{" "}
               <span className="text-white font-medium">
-                PYMEs y negocios que reciben +50 correos al mes
+                Empresas que reciben +50 correos al mes
               </span>{" "}
               con facturas y pagos
             </p>
@@ -107,9 +107,9 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative lg:h-[600px] flex items-center min-w-0"
+          className="relative flex items-center min-w-0"
         >
-          <div className="relative w-full min-w-0 lg:h-[90%] glass-dark rounded-2xl p-6 shadow-2xl overflow-hidden shadow-black/50">
+          <div className="relative w-full min-w-0 glass-dark rounded-2xl p-6 shadow-2xl overflow-hidden shadow-black/50">
             {/* Window header */}
             <div className="flex items-center gap-2 mb-6 border-b border-white/5 pb-4 min-w-0 overflow-hidden">
               <div className="flex gap-1.5 shrink-0">
