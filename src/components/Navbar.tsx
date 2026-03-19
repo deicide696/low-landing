@@ -67,7 +67,7 @@ export default function Navbar({ onOpenDemo }: NavbarProps) {
                             >
                                 Iniciar sesión
                             </Link>
-                            {isProductLanding && onOpenDemo && (
+                            {onOpenDemo && (
                                 <button
                                     onClick={() => onOpenDemo("Navbar: Demo gratis")}
                                     className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-sm font-medium backdrop-blur-md transition-all border border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
@@ -147,7 +147,7 @@ export default function Navbar({ onOpenDemo }: NavbarProps) {
                             >
                                 Iniciar sesión
                             </Link>
-                            {isProductLanding && onOpenDemo && (
+                            {onOpenDemo && (
                                 <button
                                     onClick={() => { onOpenDemo("Navbar Mobile: Demo gratis"); closeMenu() }}
                                     className="mt-3 w-full bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all border border-white/10"
