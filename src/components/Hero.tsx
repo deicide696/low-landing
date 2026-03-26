@@ -44,7 +44,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
           </motion.h1>
 
           <motion.p variants={itemVariants} className="mt-6 text-lg tracking-tight sm:text-xl leading-relaxed text-slate-300">
-            Cleo es tu auxiliar administrativo invisible que captura facturas y pagos automáticamente por ti. Disfruta un tablero claro, ahorra horas cada semana y despídete del caos de fin de mes. <strong>Modelo "pay-and-go", sin proyectos largos.</strong>
+            Cleo es tu auxiliar administrativo invisible que captura facturas y pagos automáticamente por ti, <strong className="text-white">validando cada documento directamente en la DIAN.</strong> Disfruta un tablero claro, ahorra horas cada semana y despídete del caos de fin de mes. <strong>Modelo "pay-and-go", sin proyectos largos.</strong>
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto min-w-0">
@@ -176,8 +176,8 @@ export default function Hero({ onOpenDemo }: HeroProps) {
                           <span className="text-sm text-white font-medium">03 Mar 2026</span>
                         </div>
                         <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-                          <span className="text-[10px] text-emerald-500/70 block uppercase tracking-tight mb-1">Estado</span>
-                          <span className="text-sm text-emerald-400 font-bold">Registrado</span>
+                          <span className="text-[10px] text-emerald-500/70 block uppercase tracking-tight mb-1">Estado DIAN</span>
+                          <span className="text-sm text-emerald-400 font-bold">Validado</span>
                         </div>
                       </div>
                     </div>

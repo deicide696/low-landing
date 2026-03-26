@@ -8,7 +8,6 @@ import {
   ArrowRight,
   CheckCircle2,
   FileDigit,
-  Clock,
   Zap,
 } from "lucide-react";
 
@@ -62,7 +61,7 @@ const colorMap: Record<string, { bg: string; text: string; border: string }> = {
 const cleoFeatures = [
   { icon: Mail, text: "Captura automática de facturas y pagos desde tu correo" },
   { icon: FileDigit, text: "Extracción inteligente de datos desde PDFs y adjuntos" },
-  { icon: Clock, text: "Cero cierres de mes caóticos — todo en tiempo real" },
+  { icon: CheckCircle2, text: "Validación directa y automática de facturas en la DIAN" },
   { icon: Zap, text: "Registro directo a tu Google Sheets o Excel" },
 ];
 
@@ -119,7 +118,7 @@ export default function HomeProducts() {
 
               <p className="text-lg leading-relaxed text-slate-300 mb-8">
                 Tu auxiliar administrativo invisible que captura facturas y pagos
-                automáticamente desde tu correo. Despídete del caos de fin de mes
+                automáticamente desde tu correo, validando cada factura en la DIAN al instante. Despídete del caos de fin de mes
                 y recupera horas cada semana.
               </p>
 
@@ -197,8 +196,8 @@ export default function HomeProducts() {
                         <span className="text-xs text-white font-medium">18 Mar 2026</span>
                       </div>
                       <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-                        <span className="text-[10px] text-emerald-500/70 block uppercase">Estado</span>
-                        <span className="text-xs text-emerald-400 font-bold">Registrado</span>
+                        <span className="text-[10px] text-emerald-500/70 block uppercase">Estado DIAN</span>
+                        <span className="text-xs text-emerald-400 font-bold">Validado</span>
                       </div>
                     </div>
                   </div>

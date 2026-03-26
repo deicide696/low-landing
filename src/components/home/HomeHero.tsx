@@ -13,9 +13,9 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 15000); // 15 seconds per slide
+    }, 10000); // 10 seconds per slide
     return () => clearInterval(timer);
-  }, []);
+  }, [activeSlide]);
 
   const SLIDE_COUNT = 2;
 
@@ -45,7 +45,7 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
 
       <div className="relative mx-auto max-w-7xl w-full min-w-0 flex flex-col items-center">
 
-        <div className="w-full relative min-h-[700px] lg:min-h-[550px]">
+        <div className="w-full relative min-h-[850px] md:min-h-[750px] lg:min-h-[550px]">
           <AnimatePresence mode="wait">
             {activeSlide === 1 ? (
               <motion.div
@@ -69,7 +69,7 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
                     </motion.h1>
 
                     <motion.p variants={itemVariants} className="mt-6 text-lg tracking-tight sm:text-xl leading-relaxed text-slate-300">
-                      Cleo lee tu correo, extrae los datos de cada factura y comprobante de pago, y los organiza en un tablero claro — automáticamente. <strong className="text-white">Ve diariamente tu flujo de caja.</strong>
+                      Cleo lee tu correo, extrae los datos de cada factura, <strong className="text-white">las valida directamente en la DIAN</strong> y organiza tus pagos en un tablero claro — automáticamente. <strong className="text-white">Ve diariamente tu flujo de caja.</strong>
                     </motion.p>
 
                     <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto min-w-0">

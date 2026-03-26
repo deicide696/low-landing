@@ -82,6 +82,7 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
                   "Hasta 5 reglas de configuración",
                   "Lectura de facturas y adjuntos",
                   "Lectura de comprobantes de pago",
+                  "Validación automática ante la DIAN",
                   "Registro directo a tu Google Sheets o Excel"
                 ].map((feature) => (
                   <li key={feature} className="flex items-start gap-x-3 pl-4 border-l-2 border-blue-500/60">
@@ -125,6 +126,7 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
                   "Hasta 20 reglas de configuración",
                   "Lectura de facturas y adjuntos",
                   "Lectura de comprobantes de pago",
+                  "Validación automática ante la DIAN",
                   "Registro directo a tu Google Sheets o Excel",
                   "Dashboards de métricas",
                   "Asistencia telefónica",
