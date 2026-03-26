@@ -13,9 +13,9 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 15000); // 15 seconds per slide
+    }, 10000); // 10 seconds per slide
     return () => clearInterval(timer);
-  }, []);
+  }, [activeSlide]);
 
   const SLIDE_COUNT = 2;
 
