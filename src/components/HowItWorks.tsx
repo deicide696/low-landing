@@ -11,8 +11,8 @@ export default function HowItWorks() {
     },
     {
       id: 2,
-      name: "Abre adjuntos y entiende",
-      description: "Lee los PDFs, imágenes o el cuerpo del correo, y extrae los datos clave: proveedor, total, fecha e ID de factura.",
+      name: "Extrae y valida en DIAN",
+      description: "Lee PDFs e imágenes, extrae datos clave (proveedor, total) y valida automáticamente cada factura directamente ante la DIAN antes de guardarla.",
       icon: Bot,
     },
     {

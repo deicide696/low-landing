@@ -69,7 +69,7 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
                     </motion.h1>
 
                     <motion.p variants={itemVariants} className="mt-6 text-lg tracking-tight sm:text-xl leading-relaxed text-slate-300">
-                      Cleo lee tu correo, extrae los datos de cada factura y comprobante de pago, y los organiza en un tablero claro — automáticamente. <strong className="text-white">Ve diariamente tu flujo de caja.</strong>
+                      Cleo lee tu correo, extrae los datos de cada factura, <strong className="text-white">las valida directamente en la DIAN</strong> y organiza tus pagos en un tablero claro — automáticamente. <strong className="text-white">Ve diariamente tu flujo de caja.</strong>
                     </motion.p>
 
                     <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto min-w-0">
