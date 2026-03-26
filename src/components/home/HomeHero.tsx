@@ -45,7 +45,7 @@ export default function HomeHero({ onOpenDemo }: HomeHeroProps) {
 
       <div className="relative mx-auto max-w-7xl w-full min-w-0 flex flex-col items-center">
 
-        <div className="w-full relative min-h-[700px] lg:min-h-[550px]">
+        <div className="w-full relative min-h-[850px] md:min-h-[750px] lg:min-h-[550px]">
           <AnimatePresence mode="wait">
             {activeSlide === 1 ? (
               <motion.div
